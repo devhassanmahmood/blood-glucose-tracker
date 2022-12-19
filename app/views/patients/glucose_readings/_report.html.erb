@@ -1,0 +1,16 @@
+<table class="table table-bordered mt-4">
+  <thead>
+    <tr>
+      <th scope="col">Maximum Reading</th>
+      <th scope="col">Minimum Reading</th>
+      <th scope="col">Average Reading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= fetch_maximum_level(readings)%></td>
+      <td><%= fetch_minimum_level(readings)%></td>
+      <td><%= fetch_average_level(readings)%></td>
+    </tr>
+  </tbody>
+</table>

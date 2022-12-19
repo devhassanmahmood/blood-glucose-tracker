@@ -1,0 +1,47 @@
+<div class="mt-4 d-flex justify-content-center pr-2">
+  <button class="tablink" data-attr="Daily" >Daily</button>
+  <button class="tablink" data-attr='month_to_date' id="defaultOpen">Month to Date</button>
+  <button class="tablink" data-attr='Monthly'>Monthly</button>
+</div>
+
+<div id="Daily" class="tabcontent">
+  <%= render partial: 'report', locals: { readings: @daily_report } %>
+</div>
+
+<div id="month_to_date" class="tabcontent">
+    <%= render partial: 'report', locals: { readings: @month_to_date_report } %>
+</div>
+
+<div id="Monthly" class="tabcontent">
+  <%= render partial: 'report', locals: { readings: @monthly_report } %>
+</div>
+
+<script>
+  $(document).ready(() => {
+    // Get the element with id="defaultOpen" and click on it
+
+    $(".tablink").on("click", function(event) {
+      console.log("link clicked");
+    // Hide all elements with class="tabcontent" by default */
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // Remove the background color of all tablinks/buttons
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "white";
+      }
+
+      // Show the specific tab content
+      document.getElementById($(this).attr('data-attr')).style.display = "block";
+
+      // Add the specific color to the button used to open the tab content
+      $(this).css({'background-color': 'DodgerBlue'})
+    });
+    
+    document.getElementById("defaultOpen").click();
+  });
+</script>

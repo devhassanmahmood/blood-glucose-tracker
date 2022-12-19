@@ -1,0 +1,35 @@
+// Place all the styles related to the glucose_readings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* Style tab links */
+.tablink {
+  button{
+    border:solid 2px #0487e0;
+    border-radius:8px;
+    color:#0487e0;
+    padding:5px 20px;
+    &.active{
+      background:#0487e0;
+      color:#fff;
+    }
+  }
+  p{
+	  font-size:1rem;
+	  color:#121e3d;
+	  font-weight: 600;
+	}
+
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: black;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
