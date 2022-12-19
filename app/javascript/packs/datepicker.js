@@ -1,5 +1,4 @@
 import { Datepicker } from 'vanillajs-datepicker';
-import { DateRangePicker } from 'vanillajs-datepicker';
 
 $(document).ready(() => {
     const elem = document.getElementById('dateSelector');
@@ -9,22 +8,20 @@ $(document).ready(() => {
             clearBtn: true,
             beforeShowDay: (date) => {
                 const dateToday = new Date();
-                return date >= dateToday;
-            }
-        });
-    }
-
-    const elem2 = document.getElementById('multiDateSelector');
-    if(elem2) {
-        const datepicker = new DateRangePicker(elem2, {
-            autohide: true,
-            clearBtn: true,
-            keyboardNavigation: false,
-            todayHighlight:'TRUE',
-            beforeShowDay: (date) => {
-                const dateToday = new Date();
                 return date <= dateToday;
             }
         });
+
+      elem.addEventListener('changeDate', function(e) {
+        console.log('end', e.detail.date);
+        var date = e.detail.date.toString();
+        var url = window.location.href
+        if(window.location.href.includes('date'))
+        {
+          url = url.substring(0, url.indexOf('?date'))
+        }
+        window.history.replaceState({}, '', url + '?date='+date);
+        window.location.reload();
+      });
     }
 });

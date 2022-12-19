@@ -6,10 +6,10 @@ Rails.application.routes.draw do
                         registrations: 'patients/devise/registrations'
                       }
 
-  root to: 'patients/glucose_readings#index', as: :patient_root_path
+  root to: 'patients/glucose_readings#index', as: :patient_root
 
   namespace :patients do
-    resource :glucose_readings, only: %w[index new]
+    resource :glucose_readings, only: %w[index new create]
   end
 
   #We will enable it if we need to implement doctors functionality

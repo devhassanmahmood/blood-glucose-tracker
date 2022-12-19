@@ -1,6 +1,7 @@
 class GlucoseReading < ApplicationRecord
 	belongs_to :user
-	before_create :check_reading_count
+	validates :level, presence: true
+	validate :check_reading_count
 
 	scope :daily_report_records, ->(user_id, date) { where(user_id: user_id, created_at: date.beginning_of_day..date.end_of_day) }
 	scope :month_to_date_report_records, ->(user_id, date) { where(user_id: user_id, created_at: date.beginning_of_month..date.end_of_day) }
@@ -9,7 +10,7 @@ class GlucoseReading < ApplicationRecord
 	private
 
 	def check_reading_count
-		if where(user_id: self.user_id, created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count >= 4
+		if GlucoseReading.where(user_id: self.user_id, created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count >= 4
 			self.errors[:base] << "You can only save 4 Readings Per day.."
 		end
 	end

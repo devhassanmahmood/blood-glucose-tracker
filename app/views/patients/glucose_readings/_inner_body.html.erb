@@ -1,0 +1,11 @@
+<div id="Daily" class="tabcontent">
+  <%= render partial: 'report', locals: { readings: daily_report } %>
+</div>
+
+<div id="month_to_date" class="tabcontent">
+    <%= render partial: 'report', locals: { readings: month_to_date_report } %>
+</div>
+
+<div id="Monthly" class="tabcontent">
+  <%= render partial: 'report', locals: { readings: monthly_report } %>
+</div>

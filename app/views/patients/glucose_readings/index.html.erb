@@ -1,24 +1,21 @@
 <div class="mt-4 d-flex justify-content-center pr-2">
-  <button class="tablink" data-attr="Daily" >Daily</button>
-  <button class="tablink" data-attr='month_to_date' id="defaultOpen">Month to Date</button>
+  <button class="tablink" data-attr="Daily" id="defaultOpen">Daily</button>
+  <button class="tablink" data-attr='month_to_date'>Month to Date</button>
   <button class="tablink" data-attr='Monthly'>Monthly</button>
 
-  <div class="ml-10">
-    <label>Delivery Date</label>
-    <input type="text" class="radius10 shadow" id="dateSelector" placeholder="mm/dd/yy" />
+  <div class="p-3">
+    <label>Select Date</label>
+    <input type="text" class="radius10 shadow report-date" id="dateSelector" placeholder="mm/dd/yy" />
   </div>
+  <div class="p-3">
+    <label></label>
+      <%= link_to "Add new Glucose Reading", new_patients_glucose_readings_path %>
+  </div>
+
 </div>
 
-<div id="Daily" class="tabcontent">
-  <%= render partial: 'report', locals: { readings: @daily_report } %>
-</div>
-
-<div id="month_to_date" class="tabcontent">
-    <%= render partial: 'report', locals: { readings: @month_to_date_report } %>
-</div>
-
-<div id="Monthly" class="tabcontent">
-  <%= render partial: 'report', locals: { readings: @monthly_report } %>
+<div id="inner_body">
+  <%= render partial: 'inner_body', locals: { daily_report: @daily_report, month_to_date_report: @month_to_date_report, monthly_report: @monthly_report } %>
 </div>
 
 <script>
@@ -26,7 +23,6 @@
     // Get the element with id="defaultOpen" and click on it
 
     $(".tablink").on("click", function(event) {
-      console.log("link clicked");
     // Hide all elements with class="tabcontent" by default */
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tabcontent");
