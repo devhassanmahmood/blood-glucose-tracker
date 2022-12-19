@@ -2,6 +2,11 @@
   <button class="tablink" data-attr="Daily" >Daily</button>
   <button class="tablink" data-attr='month_to_date' id="defaultOpen">Month to Date</button>
   <button class="tablink" data-attr='Monthly'>Monthly</button>
+
+  <div class="ml-10">
+    <label>Delivery Date</label>
+    <input type="text" class="radius10 shadow" id="dateSelector" placeholder="mm/dd/yy" />
+  </div>
 </div>
 
 <div id="Daily" class="tabcontent">
@@ -41,7 +46,7 @@
       // Add the specific color to the button used to open the tab content
       $(this).css({'background-color': 'DodgerBlue'})
     });
-    
+
     document.getElementById("defaultOpen").click();
   });
 </script>

@@ -6,9 +6,7 @@ Rails.application.routes.draw do
                         registrations: 'patients/devise/registrations'
                       }
 
-  authenticated :user, lambda { |u| u.patient? } do
-    root to: 'patients/glucose_readings#index', as: :patient_root_path
-  end
+  root to: 'patients/glucose_readings#index', as: :patient_root_path
 
   namespace :patients do
     resource :glucose_readings, only: %w[index new]

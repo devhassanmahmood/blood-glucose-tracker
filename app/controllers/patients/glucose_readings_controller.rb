@@ -8,6 +8,13 @@ module Patients
     end
 
     def new
+      current_user.glucose_readings.create(glucose_reading_params)
+    end
+
+    private
+
+    def glucose_reading_params
+      params.require(:glucose_readings).permit()
     end
   end
 end

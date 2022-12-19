@@ -11,6 +11,7 @@ import "bootstrap"
 import "../../assets/stylesheets/application"
 import jquery from 'jquery';
 window.$ = window.jquery = jquery;
+import './datepicker'
 
 Rails.start()
 Turbolinks.start()
