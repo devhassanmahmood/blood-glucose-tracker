@@ -8,6 +8,6 @@ module ApplicationHelper
 	end
 
 	def fetch_average_level(readings)
-		readings.minimum(:level)
+		readings.average(:level)
 	end
 end
