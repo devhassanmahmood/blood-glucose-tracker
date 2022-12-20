@@ -11,7 +11,7 @@ class GlucoseReading < ApplicationRecord
 
 	def check_reading_count
 		if GlucoseReading.where(user_id: self.user_id, created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count >= 4
-			self.errors[:base] << "You can only save 4 Readings Per day.."
+			self.errors[:base] << "You can only save 4 Readings Per day."
 		end
 	end
 end
