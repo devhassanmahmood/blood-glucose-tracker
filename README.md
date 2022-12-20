@@ -5,20 +5,19 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.7.1
 
-* System dependencies
+* Database Mysql
 
-* Configuration
+Navigate to application directory and then follow these steps
 
-* Database creation
 
-* Database initialization
+1- bundle install
 
-* How to run the test suite
+2- rails db:create & rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+3- rails db:seed 
 
-* Deployment instructions
+4- yarn install
 
-* ...
+5- rails s
