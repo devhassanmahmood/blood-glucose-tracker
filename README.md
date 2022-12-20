@@ -21,3 +21,18 @@ Navigate to application directory and then follow these steps
 4- yarn install
 
 5- rails s
+
+
+Features Included
+
+1- Patient can Sign In
+
+2- Pateint can Sign Up
+
+3- Patient can Forgot Password and Reset it
+
+4- Patient can record his Glucose Reading Level
+
+5- Patient can check his daily, month to date and monthly report
+
+6- Patient can select date and fetch records according to that
